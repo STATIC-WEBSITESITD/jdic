@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.marquee-section {
+  background: var(--primary);
+  overflow: hidden;
+  padding: 16px 0;
+}
+
+.marquee-section__wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-section__content {
+  display: flex;
+  width: max-content;
+  gap: 60px;
+  animation: marqueeMove 22s linear infinite;
+}
+
+.marquee-section__content span {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.marquee-section:hover .marquee-section__content {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Benefit card grids — column gutters (BS4; avoids double bottom gap) */
+.about-info > .row:has(.benefit-card) {
+  margin-bottom: -30px;
+}
+
+.about-info > .row:has(.benefit-card) > [class*='col-'] {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.about-info > .row:has(.benefit-card) .benefit-card {
+  margin-bottom: 0;
+}
+
+@media (max-width: 575px) {
+  .about-info > .row:has(.benefit-card) {
+    margin-bottom: -24px;
+  }
+
+  .about-info > .row:has(.benefit-card) > [class*='col-'] {
+    margin-bottom: 24px;
+  }
+}
+
+.customer-enquiry-form .package-block {
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.customer-enquiry-form .package-title {
+  font-weight: 600;
+}
+
+.customer-enquiry-form .enquiry-input-group {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.customer-enquiry-form .enquiry-input-group select {
+  max-width: 5.5rem;
+  flex-shrink: 0;
+}
+
+.customer-enquiry-form .enquiry-dim-inputs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.customer-enquiry-form .enquiry-dim-inputs input {
+  flex: 1;
+  min-width: 3.5rem;
+}
+
+.customer-enquiry-form .enquiry-dim-inputs select {
+  max-width: 5.5rem;
+  flex-shrink: 0;
+}
+
+.customer-enquiry-form .form-group textarea {
+  height: auto;
+  max-height: none;
+}

@@ -1,0 +1,151 @@
+
+.accordion {
+    margin-top: 25px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: var(--primary);
+}
+
+.accordion .accordion-header {
+    padding: 15px 1.2em;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.accordion .accordion-header:hover {
+    background: #1a4a8a;
+}
+
+.accordion .accordion-header h2 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.accordion .accordion-header h2:nth-child(2) {
+    margin-left: auto;
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+.accordion .accordion-header.active {
+    background: linear-gradient(90deg, #000, #444);
+}
+
+.accordion .accordion-header .fa_icon {
+    color: #fff;
+    transition: transform 0.3s, color 0.3s;
+    font-size: 16px;
+}
+
+.accordion .accordion-header.active .fa_icon {
+    transform: rotate(-360deg);
+    color: #ffffff;
+}
+
+.accordion .accordion-body {
+    display: none;
+    padding: 1.2em;
+    border: none;
+    border-top: 2px solid var(--primary);
+    background: #f9f9f9;
+    transition: all 0.4s ease;
+}
+
+.accordion .accordion-body.active {
+    display: block;
+}
+
+.tracking-info table,
+.delivery-info table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.tracking-info th,
+.tracking-info td,
+.delivery-info th,
+.delivery-info td {
+    padding: 10px 12px;
+    text-align: left;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.tracking-info th,
+.delivery-info th {
+    background: var(--primary);
+    color: #fff !important;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tracking-info td,
+.delivery-info td {
+    background: #fff;
+    color: #000;
+}
+
+.tracking-info tbody tr:nth-child(even),
+.delivery-info tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.accordion .accordion-body h3 {
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #000;
+    text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+    .accordion .accordion-header {
+        padding: 12px 10px;
+    }
+
+    .accordion .accordion-header h2 {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    .tracking-info table,
+    .tracking-info th,
+    .tracking-info td,
+    .delivery-info table,
+    .delivery-info th,
+    .delivery-info td {
+        font-size: 12px;
+        padding: 6px 8px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 767px) {
+    .accordion .accordion-header h2 {
+        font-size: 12px;
+    }
+
+    .tracking-info table,
+    .tracking-info th,
+    .tracking-info td,
+    .delivery-info table,
+    .delivery-info th,
+    .delivery-info td {
+        font-size: 12px;
+        padding: 5px 6px;
+    }
+}
