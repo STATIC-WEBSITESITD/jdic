@@ -35,10 +35,17 @@ export default function useTracking() {
       resultBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    const url = `https://admin.jdic.online/api/tracking_api/get_tracking_data?${searchType}=${trackingNumbers.join(',')}&customer_code=superadmin&company=j-d-international-courier&api_company_id=2`;
+    const url1 = `https://admin.jdic.online/api/tracking_api/get_tracking_data?${searchType}=${trackingNumbers.join(',')}&customer_code=superadmin&company=j-d-international-courier&api_company_id=2`;
+    const url2 = `https://admin.syel.in/api/tracking_api/get_tracking_data?${searchType}=${trackingNumbers.join(',')}&customer_code=superadmin&company=shree-yogi-express-logistics&api_company_id=519`;
 
-    fetch(url)
+    fetch(url1)
       .then((res) => res.json())
+      .then((data) => {
+        if (!data?.length || data[0]?.errors) {
+          return fetch(url2).then((res) => res.json());
+        }
+        return data;
+      })
       .then((data) => {
         container.innerHTML = '';
         if (!data?.length) return;

@@ -5,7 +5,6 @@ const LEGACY_SCRIPTS = [
   '/assets/js/custom.js',
   '/assets/js/swiper-bundle.min.js',
   '/assets/js/main.js',
-  '/assets/js/track.js',
 ];
 
 let scriptsPromise = null;
