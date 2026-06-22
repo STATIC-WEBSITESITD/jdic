@@ -34,6 +34,7 @@ export default function PickupRequestForm() {
       consigneeCity: form.consigneeCity.value,
       consigneeZip: form.consigneeZip.value,
       consigneeAddress: form.consigneeAddress.value,
+      referenceName: form.referenceName.value,
     };
 
     try {
@@ -335,21 +336,21 @@ export default function PickupRequestForm() {
                           <div className="help-block with-errors" />
                         </div>
                       </div>
-                      <div className="col-md-4">
+                      <div className="col-md-3">
                         <div className="form-group">
                           <input type="number" min="0" name="estimatedWeight" id="estimatedWeight"
                             placeholder="Estimated Weight (kg)" required data-error="Estimated Weight is required." />
                           <div className="help-block with-errors" />
                         </div>
                       </div>
-                      <div className="col-md-4">
+                      <div className="col-md-3">
                         <div className="form-group">
                           <input type="date" name="pickupDate" id="pickupDate" placeholder="Pickup Date" required
                             data-error="Pickup Date is required." />
                           <div className="help-block with-errors" />
                         </div>
                       </div>
-                      <div className="col-md-4">
+                      <div className="col-md-3">
                         <div className="form-group">
                           <select id="productType" name="productType" defaultValue="" required
                             data-error="Product Type is required.">
@@ -362,6 +363,12 @@ export default function PickupRequestForm() {
                             <option value="Others">Others</option>
                           </select>
                           <div className="help-block with-errors"></div>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <div className="form-group">
+                          <input type="text" name="referenceName" id="referenceName" placeholder="Reference Name" />
+                          <div className="help-block with-errors" />
                         </div>
                       </div>
                     </div>

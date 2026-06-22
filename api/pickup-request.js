@@ -41,6 +41,7 @@ export default async function handler(req, res) {
     consigneeCity,
     consigneeZip,
     consigneeAddress,
+    referenceName,
   } = req.body;
 
   console.log('Form Data Received:', {
@@ -92,8 +93,9 @@ export default async function handler(req, res) {
       <p><strong>Address:</strong> ${shipperAddress}</p>
       <p><strong>Estimated Weight (kg):</strong> ${estimatedWeight}</p>
       <p><strong>Pickup Date:</strong> ${pickupDate}</p>
-      <p><strong>Product Type:</strong> ${productType}</p>
-      <h3>2. Drop Off Location (Consignee)</h3>
+    <p><strong>Product Type:</strong> ${productType}</p>
+    ${referenceName ? `<p><strong>Reference Name:</strong> ${referenceName}</p>` : ''}
+    <h3>2. Drop Off Location (Consignee)</h3>
       <p><strong>Contact Name:</strong> ${consigneeContactName}</p>
       <p><strong>Email:</strong> ${consigneeEmail}</p>
       <p><strong>Mobile:</strong> ${consigneeMobile}</p>
@@ -101,8 +103,8 @@ export default async function handler(req, res) {
       <p><strong>State:</strong> ${consigneeState}</p>
       <p><strong>City:</strong> ${consigneeCity}</p>
       <p><strong>Zip / Postal Code:</strong> ${consigneeZip}</p>
-      <p><strong>Address:</strong> ${consigneeAddress}</p>
-    `,
+    <p><strong>Address:</strong> ${consigneeAddress}</p>
+  `,
     });
 
     await transporter.sendMail({
