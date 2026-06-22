@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { servicesLinks } from '../../data/navigation';
 
 export default function Footer() {
   return (
@@ -22,17 +23,28 @@ export default function Footer() {
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3 col-12">
               <div className="cstm_footer_block mb-30">
+                <h4 className="cstm_footer_title mb-30">Our Services</h4>
+                <nav>
+                  <ul>
+                    {servicesLinks.map((item) => (
+                      <li key={item.path}><Link to={item.path}>{item.label}</Link></li>
+                    ))}
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div className="col-sm-6 col-md-4 col-lg-3 col-12">
+              <div className="cstm_footer_block mb-30">
                 <h4 className="cstm_footer_title mb-30">Resources</h4>
                 <nav>
                   <ul>
                     <li><Link to="/blogs">Blogs</Link></li>
                     <li><Link to="/documents">Documents</Link></li>
                     <li><Link to="/prohibited-goods">Prohibited Goods</Link></li>
+                    <li><Link to="/pickup-request">Pickup Request</Link></li>
                   </ul>
                 </nav>
               </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-3 col-12">
               <div className="cstm_footer_block mb-30">
                 <h4 className="cstm_footer_title mb-30">Legal Policies</h4>
                 <nav>

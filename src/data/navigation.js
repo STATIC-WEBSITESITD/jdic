@@ -4,6 +4,7 @@ export const resourcesLinks = [
   { label: 'Blogs', path: '/blogs' },
   { label: 'Documents', path: '/documents' },
   { label: 'Prohibited Goods', path: '/prohibited-goods' },
+  { label: 'Pickup Request', path: '/pickup-request' },
 ];
 
 export const loginLinks = [
