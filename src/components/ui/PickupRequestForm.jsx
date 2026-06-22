@@ -37,7 +37,7 @@ export default function PickupRequestForm() {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/pickup-request', {
+      const response = await fetch('/api/pickup-request', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

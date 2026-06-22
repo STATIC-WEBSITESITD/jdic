@@ -112,7 +112,7 @@ function buildEmailPayload(formValues, packageList) {
 }
 
 async function postEmail(payload) {
-  const response = await fetch('http://localhost:3000/api/customer-enquiry', {
+  const response = await fetch('/api/customer-enquiry', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

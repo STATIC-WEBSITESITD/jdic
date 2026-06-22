@@ -35,7 +35,7 @@ export default function CareersForm() {
     formData.append('resume', resumeInput.files[0]);
 
     try {
-      const response = await fetch('http://localhost:3000/api/careers', {
+      const response = await fetch('/api/careers', {
         method: 'POST',
         body: formData,
       });

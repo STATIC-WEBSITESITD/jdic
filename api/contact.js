@@ -41,41 +41,49 @@ export default async function handler(req, res) {
     },
   });
 
-  await transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    subject: `New Enquiry - ${subject}`,
-    html: `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Mobile:</strong> ${mobile}</p>
-      <p><strong>Subject:</strong> ${subject}</p>
-      <p><strong>Message:</strong> ${message}</p>
-    `,
-  });
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
+      subject: `New Enquiry - ${subject}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Mobile:</strong> ${mobile}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `,
+    });
 
-  await transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: email,
-    subject: 'Thank You for Contacting JD International Courier',
-    html: `
-      <h2>Thank You</h2>
-      <p>Dear ${name},</p>
-  
-      <p>We have received your enquiry.</p>
-  
-      <p>Our team will contact you shortly.</p>
-  
-      <br>
-  
-      <p>Regards,</p>
-      <p>JD International Courier</p>
-    `,
-  });
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Thank You for Contacting JD International Courier',
+      html: `
+        <h2>Thank You</h2>
+        <p>Dear ${name},</p>
 
-  return res.status(200).json({
-    success: true,
-    message: 'Form data received successfully',
-  });
+        <p>We have received your enquiry.</p>
+
+        <p>Our team will contact you shortly.</p>
+
+        <br>
+
+        <p>Regards,</p>
+        <p>JD International Courier</p>
+      `,
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: 'Form data received successfully',
+    });
+  } catch (error) {
+    console.error('Email sending error:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to send email. Please try again later.',
+    });
+  }
 }
