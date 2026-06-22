@@ -87,6 +87,46 @@ async function postRow(row) {
   }
 }
 
+function buildEmailPayload(formValues, packageList) {
+  return {
+    date: new Date().toLocaleDateString('en-IN', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }),
+    customer_name: formValues.customer_name ?? '',
+    contact_number: formValues.contact_number ?? '',
+    company_name: formValues.company_name ?? '',
+    pickup_location: formValues.pickup_location ?? '',
+    pickup_zip_code: formValues.pickup_zip_code ?? '',
+    destination: formValues.destination ?? '',
+    destination_zip_code: formValues.destination_zip_code ?? '',
+    contents: formValues.contents ?? '',
+    remarks: formValues.remarks ?? '',
+    packages: packageList.map((pkg) => ({
+      qty: pkg.qty == null ? '' : String(pkg.qty),
+      actual_weight: formatActualWeight(pkg.weight, pkg.weightUnit),
+      volumetric_weight: calcVolumetric(pkg.dimL, pkg.dimW, pkg.dimH, pkg.dimUnit),
+    })),
+  };
+}
+
+async function postEmail(payload) {
+  const response = await fetch('http://localhost:3000/api/customer-enquiry', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const result = await response.json();
+
+  if (!response.ok || !result.success) {
+    throw new Error(result.message || 'Email submission failed');
+  }
+}
+
 function PackageBlock({ index, pkg, canRemove, onChange, onRemove }) {
   const volumetric = calcVolumetric(pkg.dimL, pkg.dimW, pkg.dimH, pkg.dimUnit);
   const actualWeight = formatActualWeight(pkg.weight, pkg.weightUnit);
@@ -257,6 +297,8 @@ export default function CustomerEnquiryForm() {
       for (let index = 0; index < packages.length; index += 1) {
         await postRow(buildSheetRow(formValues, packages[index], index === 0));
       }
+
+      await postEmail(buildEmailPayload(formValues, packages));
 
       form.reset();
       setPackages([createPackage()]);
