@@ -16,6 +16,7 @@ import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import TermsConditions from './pages/TermsConditions';
 import Careers from './pages/Careers';
+import PickupRequest from './pages/PickupRequest';
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="shipping-policy" element={<ShippingPolicy />} />
           <Route path="terms-conditions" element={<TermsConditions />} />
           <Route path="careers" element={<Careers />} />
+          <Route path="pickup-request" element={<PickupRequest />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

@@ -104,6 +104,13 @@ export const careersSection = {
   subtitle: 'Interested in joining our team? Fill out the form below and we will get back to you.',
 };
 
+export const pickupRequestSection = {
+  title: 'Pickup',
+  titleAccent: 'Request',
+  subtitle: 'Share pickup and delivery details and our team will confirm your collection schedule.',
+  buttonLabel: 'Submit Pickup Request',
+};
+
 export const enquirySection = {
   home: {
     title: 'Enquiry',

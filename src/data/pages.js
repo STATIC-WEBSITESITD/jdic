@@ -20,6 +20,7 @@ const STATIC_PAGE_TITLES = {
   '/': 'JD International Courier Ahmedabad | International Courier & Cargo',
   '/about': `About Us ${PAGE_TITLE_SUFFIX}`,
   '/contact': `Contact Us ${PAGE_TITLE_SUFFIX}`,
+  '/pickup-request': `Pickup Request ${PAGE_TITLE_SUFFIX}`,
   '/tracking': `Track Your Shipment ${PAGE_TITLE_SUFFIX}`,
   '/documents': `Documents ${PAGE_TITLE_SUFFIX}`,
   '/blogs': `Our Blogs ${PAGE_TITLE_SUFFIX}`,
