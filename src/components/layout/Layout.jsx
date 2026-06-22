@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Marquee from './Marquee';
 import BackToTop from './BackToTop';
 import StickyWhatsApp from './StickyWhatsApp';
+import StickyPickupButton from './StickyPickupButton';
 import PageEffects from './PageEffects';
 import { useLegacyAssets, useStickyHeader } from '../../hooks/useSiteEffects';
 import useTracking from '../../hooks/useTracking';
@@ -61,6 +62,7 @@ export default function Layout() {
       </main>
       <Footer />
       <StickyWhatsApp />
+      <StickyPickupButton />
       <BackToTop />
     </>
   );
