@@ -355,7 +355,7 @@ a {
 }
 
 .sticky-pickup-btn {
-    display: none;
+    display: flex;
     position: fixed;
     right: 0;
     top: 50%;
@@ -393,13 +393,6 @@ a {
     color: #ffffff;
     right: 2px;
 }
-
-@media (min-width: 768px) {
-    .sticky-pickup-btn {
-        display: flex;
-    }
-}
-
 
 .up-arrow {
     width: 8px;
